@@ -1,0 +1,40 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	xmlns:sec="https://www.thymeleaf.org/extras/spring-security"
+	layout:decorator="layout/layout">
+<head>
+<title th:utext="${title}"></title>
+<style>
+th, td {
+	padding: 5px;
+}
+
+td span {
+	font-size: 90%;
+	font-style: italic;
+	color: red;
+}
+
+.error {
+	color: red;
+	font-style: italic;
+}
+</style>
+</head>
+<body>
+	<!-- Include _menu.html -->
+	<div layout:fragment="content">
+		<!-- #IMPORTANT. Refer to this layout in every page you want to use the theme -->
+		<div class="content-wrapper">
+
+			<h2>Register</h2>
+
+			<div th:if="${errorMessage != null}" th:utext="${errorMessage}"
+				class="error">...</div>
+
+			
+		</div>
+	</div>
+</body>
+</html>

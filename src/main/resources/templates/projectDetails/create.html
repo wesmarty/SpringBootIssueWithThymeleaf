@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	xmlns:sec="https://www.thymeleaf.org/extras/spring-security"
+	layout:decorate="~{layout/layout}">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+	<!-- #IMPORTANT. Refer to this layout in every page you want to use the theme -->
+	<div layout:fragment="content" class="content-wrapper">
+		<section class="content-header">
+			<h1>
+				Projects <small>Create Projects</small>
+			</h1>
+			<ol class="breadcrumb">
+				<li><a href="#"><i class="fa fa-dashboard"></i> Projects</a></li>
+				<li class="active">Create Project</li>
+			</ol>
+		</section>
+		<!-- Main content -->
+		<section class="content">
+			<!-- Small boxes (Stat box) -->
+			<div class="row">
+				<div class="col-lg-12 col-xs-6">
+					<div class="box box-solid box-info">
+						<div class="box-header">
+							<h3 class="box-title">Create Project</h3>
+						</div>
+						<!-- /.box-header -->
+						<div class="box-body">
+							<form th:action="@{/projectDetails/save}" role="form" th:object="${projectDetails}" method="POST"
+								name="addSubCatagory">
+								<div class="box-body">
+									<div class="form-group">
+										<label>Project name:</label> <input type="text"
+											class="form-control" name="subCatName" id="subCategory"
+											value="" placeholder=" Enter Project Name....." th:field="*{projectName}">
+									</div>
+									<div class="form-group">
+										<label>Well name:</label> <input type="text"
+											class="form-control" name="subCatDesc" id="subcatDesc"
+											value="" placeholder="Well Name ...." th:field="*{wellName}">
+									</div>
+									<div class="form-group">
+										<label>Company Name:</label> <input type="text"
+											class="form-control" name="subCatDesc" id="subcatDesc"
+											value="" placeholder="Company Name ...." th:field="*{companyName}">
+									</div>
+
+								</div>
+								<!-- /.box-body -->
+
+								<div class="box-footer right">
+									<button type="submit" class="btn btn-info">Create</button>
+									<button type="reset" class="btn btn-default">Reset</button>
+								</div>
+							</form>
+						</div>
+						<!-- /.box-body -->
+					</div>
+					<!-- /.box -->
+				</div>
+				<!-- ./col -->
+			</div>
+			<!-- /.row -->
+		</section>
+		<!-- /.content -->
+	</div>
+</body>
+</html>

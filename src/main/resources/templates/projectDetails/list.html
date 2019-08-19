@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	xmlns:sec="https://www.thymeleaf.org/extras/spring-security"
+	layout:decorate="layout/layout">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+	<!-- #IMPORTANT. Refer to this layout in every page you want to use the theme -->
+	<div layout:fragment="content" class="content-wrapper">
+		<section class="content-header">
+			<h1>
+				Projects <small>Create Projects</small>
+			</h1>
+			<ol class="breadcrumb">
+				<li><a href="#"><i class="fa fa-dashboard"></i> Projects</a></li>
+				<li class="active">Create Project</li>
+			</ol>
+		</section>
+		<!-- Main content -->
+		<section class="content">
+			<!-- Main row -->
+			<div class="row">
+				<!-- right col (We are only adding the ID to make the widgets sortable)-->
+				<section class="col-lg-12 ">
+					<div class="box box-info">
+						<div class="box-header">
+							<h3 class="box-title">All Projects</h3>
+						</div>
+						<!-- /.box-header -->
+						<div class="box-body">
+							<table id="example2" class="table table-hover table-hover">
+								<thead>
+									<tr>
+										<th>Project Name</th>
+										<th>Well name</th>
+										<th>Company Name</th>
+										<th>Date of Created</th>
+										<th></th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr th:each="project: ${projectListInstance}">
+										<td th:text="${project.projectName}" />
+										<td th:text="${project.wellName}" />
+										<td th:text="${project.companyName}" />
+										<td th:text="${project.dateCreated}" />
+										<td><a th:href="@{'/delete/' + ${project.id}}" class="glyphicon glyphicon-trash"><span
+												></span></a></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+						<!-- /.box-body -->
+					</div>
+					<!-- /.box -->
+				</section>
+				<!-- right col -->
+			</div>
+			<!-- /.row (main row) -->
+		</section>
+		<!-- /.content -->
+	</div>
+</body>
+</html>
